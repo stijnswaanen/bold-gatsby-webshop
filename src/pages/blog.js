@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "antd";
+import { graphql } from "gatsby";
 
 import LayoutWrapper from "../layout/layout-wrapper";
 import BlogCard from "../components/blog-card/blog-card";
@@ -31,13 +32,29 @@ const dummyBlogPosts = [
   },
 ];
 
-const Blog = () => {
+const Blog = ({ data }) => {
+  /* const {
+    allMarkdownRemark: { nodes },
+  } = data; */
   return (
     <LayoutWrapper>
       <div className={styles.blogHeader}>
         <h1>Blogs</h1>
       </div>
       <Row gutter={[16, 16]}>
+        {/* {nodes.map((node) => {
+          const blogPost = {
+            title: node.frontmatter.title,
+            author: node.frontmatter.authors?.join(", "),
+            description: node.excerpt,
+            image: dummyImage,
+          };
+          return (
+            <Col xs={24} sm={12} md={8}>
+              <BlogCard blogPost={blogPost} />
+            </Col>
+          );
+        })} */}
         <Col xs={24} sm={12} md={8}>
           <BlogCard blogPost={dummyBlogPosts[0]} />
         </Col>
@@ -53,3 +70,19 @@ const Blog = () => {
 };
 
 export default Blog;
+
+/* export const query = graphql`
+  query BlogPage {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "blog" } } }) {
+      nodes {
+        frontmatter {
+          title
+          authors
+          date
+        }
+        id
+        excerpt(truncate: true, pruneLength: 150)
+      }
+    }
+  }
+`; */
