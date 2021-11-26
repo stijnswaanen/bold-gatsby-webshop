@@ -7,7 +7,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     'gatsby-plugin-antd',
-    /*{
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'blogPosts',
@@ -17,7 +17,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
     },
-    {
+    /*{
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
@@ -26,7 +26,7 @@ module.exports = {
     },
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    'gatsby-plugin-sharp',*/
     {
       resolve: `gatsby-source-drupal`,
       options: {
@@ -36,6 +36,6 @@ module.exports = {
           sweater: `http://ec2-18-130-227-17.eu-west-2.compute.amazonaws.com/jsonapi/products/sweater`
         }
       },
-    }, */
+    },
   ],
 };

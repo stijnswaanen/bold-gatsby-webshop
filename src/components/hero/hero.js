@@ -5,7 +5,7 @@ import React from "react";
 import * as styles from "./hero.module.scss";
 
 const Hero = () => {
-  /* const {
+  const {
     site: {
       siteMetadata: { baseLine },
     },
@@ -17,7 +17,7 @@ const Hero = () => {
         }
       }
     }
-  `); */
+  `);
   return (
     <div className={styles.header}>
       <h1>
@@ -26,7 +26,7 @@ const Hero = () => {
       <p className={styles.header__text}>
         Welcome to the Ordina <strong>Bold</strong> X-mas sweater shop and blog.
       </p>
-      {/* <p>{baseLine}</p> */}
+      <p>{baseLine}</p>
       <div style={{ display: "flex" }}>
         <Link to="/products">
           <Button type="primary">Discover products</Button>

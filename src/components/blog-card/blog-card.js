@@ -12,7 +12,7 @@ const BlogCard = ({ blogPost }) => {
         title={title}
         description={author}
       />
-      {`${description.substring(0, 125)} ...`}
+      {description}
     </Card>
   );
 };
