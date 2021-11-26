@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+@import "../../styles/font-variables.scss";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+  &__text {
+	max-width: 780px;
+	font-size: $normal-font-size;
+  }
+
+  button {
+      margin: 4px;
+  }
+}
+
+@media only screen
+and (min-device-width : $media-extra-small)
+and (max-device-width : $media-small) {
+
+  .header {
+	padding: 60px 20px 0 20px;
+  }
+
+}

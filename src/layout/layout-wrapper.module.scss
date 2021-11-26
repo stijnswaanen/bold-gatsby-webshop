@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.content {
+    padding: 50px;
+    max-width: 1140px;
+    margin: 0 auto;
+    min-height: 84.5vh;
+}
+
+.footer {
+    text-align: center;
+}
+
+@media screen {
+    
+}
