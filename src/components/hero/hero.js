@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import { Link } from "gatsby";
 import React from "react";
 
 import * as styles from './hero.module.scss';
@@ -13,9 +14,8 @@ const Hero = () => {
         Welcome to the Ordina <strong>Bold</strong> X-mas sweater shop and blog.
       </p>
       <div style={{ display: 'flex' }}>
-          {/* TODO: add links */}
-        <Button type="primary">Discover products</Button>
-        <Button>Blog</Button>
+        <Link to="/products"><Button type="primary">Discover products</Button></Link>
+        <Link to="/blog"><Button>Blog</Button></Link>
       </div>
     </div>
   );
