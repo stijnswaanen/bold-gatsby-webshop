@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "antd";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import LayoutWrapper from "../layout/layout-wrapper";
@@ -28,7 +28,9 @@ const Products = ({ data }) => {
           };
           return (
             <Col xs={24} sm={12} md={6}>
-              <ProductCard product={product} />
+              <Link to={`/product/${node.id}`}>
+                <ProductCard product={product} />
+              </Link>
             </Col>
           );
         })}

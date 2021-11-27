@@ -106,3 +106,46 @@ const Product = ({ data }) => {
 };
 
 export default Product;
+
+export const query = graphql`
+  query Product($id: String) {
+    productSweater(id: { eq: $id }) {
+      id
+      title
+      field_image {
+        alt
+      }
+      relationships {
+        field_image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                formats: AUTO
+                layout: CONSTRAINED
+                width: 250
+              )
+            }
+          }
+        }
+        variations {
+          drupal_id
+          price {
+            formatted
+          }
+          relationships {
+            attribute_size {
+              name
+            }
+          }
+          internal {
+            type
+          }
+        }
+      }
+      body {
+        processed
+      }
+    }
+  }
+`;

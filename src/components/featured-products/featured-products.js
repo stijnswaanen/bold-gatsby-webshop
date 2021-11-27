@@ -59,7 +59,9 @@ const FeaturedProducts = () => {
           };
           return (
             <Col xs={24} sm={12} md={6} key={index}>
-              <ProductCard key={product.id} product={product} />
+              <Link to={`/product/${node.id}`}>
+                <ProductCard key={product.id} product={product} />
+              </Link>
             </Col>
           );
         })}
