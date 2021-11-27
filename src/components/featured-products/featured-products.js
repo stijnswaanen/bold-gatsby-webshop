@@ -1,8 +1,8 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Col, Row } from "antd";
 import ProductCard from "../product-card/product-card";
-import dummyImage from "../../assets/images/laurent.jpg";
 
 const FeaturedProducts = () => {
   const {
@@ -19,6 +19,24 @@ const FeaturedProducts = () => {
           body {
             processed
           }
+          field_image {
+            alt
+          }
+          relationships {
+            field_image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    height: 300
+                    placeholder: BLURRED
+                    formats: AUTO
+                    layout: CONSTRAINED
+                    aspectRatio: 1.5
+                  )
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -32,7 +50,12 @@ const FeaturedProducts = () => {
             id: node.id,
             name: node.title,
             description: node.body?.processed,
-            image: dummyImage,
+            image: (
+              <GatsbyImage
+                image={getImage(node.relationships.field_image.localFile)}
+                alt={node.field_image.alt}
+              />
+            ),
           };
           return (
             <Col xs={24} sm={12} md={6} key={index}>

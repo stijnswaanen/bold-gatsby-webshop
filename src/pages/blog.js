@@ -7,7 +7,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import LayoutWrapper from "../layout/layout-wrapper";
 import BlogCard from "../components/blog-card/blog-card";
 
-import dummyImage from "../assets/images/laurent.jpg";
 import * as styles from "./blog.module.scss";
 
 const Blog = ({ data }) => {
@@ -59,8 +58,7 @@ const Blog = ({ data }) => {
             title: node.frontmatter.title,
             author: node.frontmatter.authors?.join(", "),
             description: node.excerpt,
-            image: dummyImage,
-            // image: <GatsbyImage image={getImage(node.frontmatter.image)} alt={node.frontmatter.title} />
+            image: <GatsbyImage image={getImage(node.frontmatter.image)} alt={node.frontmatter.title} />
           };
           return (
             <Col xs={24} sm={12} md={8}>
