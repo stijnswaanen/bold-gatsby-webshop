@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "antd";
 import { graphql, useStaticQuery, Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlogCard from "../blog-card/blog-card";
 import dummyImage from "../../assets/images/laurent.jpg";
 
@@ -18,6 +19,17 @@ const LatestBlogs = () => {
             title
             authors
             date
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 300
+                  placeholder: BLURRED
+                  formats: AUTO
+                  layout: CONSTRAINED
+                  aspectRatio: 1.5
+                )
+              }
+            }
           }
           id
           excerpt(truncate: true, pruneLength: 150)
@@ -41,6 +53,7 @@ const LatestBlogs = () => {
             author: node.frontmatter.authors?.join(", "),
             description: node.excerpt,
             image: dummyImage,
+            // image: <GatsbyImage image={getImage(node.frontmatter.image)} alt={node.frontmatter.title} />
           };
           return (
             <Col xs={24} sm={12} md={8} key={i}>

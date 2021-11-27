@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Col, Row, Menu, Dropdown, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import LayoutWrapper from "../layout/layout-wrapper";
 import BlogCard from "../components/blog-card/blog-card";
@@ -59,6 +60,7 @@ const Blog = ({ data }) => {
             author: node.frontmatter.authors?.join(", "),
             description: node.excerpt,
             image: dummyImage,
+            // image: <GatsbyImage image={getImage(node.frontmatter.image)} alt={node.frontmatter.title} />
           };
           return (
             <Col xs={24} sm={12} md={8}>
@@ -81,6 +83,17 @@ export const query = graphql`
           title
           authors
           date
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                height: 300
+                placeholder: BLURRED
+                formats: AUTO
+                layout: CONSTRAINED
+                aspectRatio: 1.5
+              )
+            }
+          }
         }
         id
         excerpt(truncate: true, pruneLength: 150)

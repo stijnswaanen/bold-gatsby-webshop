@@ -6,6 +6,7 @@ const BlogCard = ({ blogPost }) => {
   return (
     <Card
       cover={<img src={image} alt={title} />}
+      // cover={image}
       bordered={false}
     >
       <Card.Meta
