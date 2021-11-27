@@ -61,7 +61,9 @@ const LatestBlogs = () => {
           };
           return (
             <Col xs={24} sm={12} md={8} key={i}>
-              <BlogCard key={blogPost.id} blogPost={blogPost} />
+              <Link to={`/blog/${blogPost.id}`}>
+                <BlogCard key={blogPost.id} blogPost={blogPost} />
+              </Link>
             </Col>
           );
         })}

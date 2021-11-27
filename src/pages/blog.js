@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Row, Menu, Dropdown, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import LayoutWrapper from "../layout/layout-wrapper";
@@ -55,6 +55,7 @@ const Blog = ({ data }) => {
       <Row gutter={[16, 16]}>
         {getNodes().map((node) => {
           const blogPost = {
+            id: node.id,
             title: node.frontmatter.title,
             author: node.frontmatter.authors?.join(", "),
             description: node.excerpt,
@@ -62,7 +63,9 @@ const Blog = ({ data }) => {
           };
           return (
             <Col xs={24} sm={12} md={8}>
-              <BlogCard blogPost={blogPost} />
+              <Link to={`/blog/${blogPost.id}`}>
+                <BlogCard blogPost={blogPost} />
+              </Link>
             </Col>
           );
         })}
