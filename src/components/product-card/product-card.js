@@ -8,9 +8,7 @@ const ProductCard = ({ product }) => {
     <Card cover={image} bordered={false}>
       <Card.Meta title={name} />
       {description && 
-        <div className={styles.content}>
-          {`${description.substring(0, 125)} ...`}
-        </div>
+        <div className={styles.content} dangerouslySetInnerHTML={{__html: `${description.substring(0, 125)} ...`}}></div>
       }
     </Card>
   );
